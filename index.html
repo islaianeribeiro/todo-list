@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lista de Tarefas</title>
+
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <header class="title">
+            <h1>Lista de Tarefas</h1>
+        </header>
+
+        <main>
+            <section class="classForm">
+                <div class="formulario">
+                    <form action="" id="todo-form">
+                        <input
+                            type="text"
+                            placeholder="Adicione uma nova tarefa"
+                            id="task-title-input"
+                        />
+                        <button class="btn" type="submit" id="add-task-button">
+                            Criar
+                        </button>
+                    </form>
+                </div>
+                <div
+                    class="no-tasks"
+                    id="no-tasks-message"
+                    style="display: none"
+                >
+                    <img src="./img/lista-de-controle.png" alt="Lista" />
+                    <h2>Você ainda não tem tarefas adicionadas.</h2>
+                    <p>Comece agora criando sua primeira tarefa!</p>
+                </div>
+                <div class="list">
+                    <ul id="todo-list"></ul>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <h2>© 2025 Islaiane Ribeiro. Todos os direitos reservados.</h2>
+            <ul>
+                <li>
+                    <a href="https://www.linkedin.com/in/islaianeribeiro"
+                        >LinkendIn</a
+                    >
+                </li>
+                <li><a href="https://github.com/islaianeribeiro">GitHub</a></li>
+            </ul>
+        </footer>
+
+        <script src="index.js"></script>
+    </body>
+</html>
