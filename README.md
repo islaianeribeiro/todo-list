@@ -1,137 +1,83 @@
-# Lista de Tarefas - Descrição do script
+# ✅ Lista de Tarefas
 
-Esse script implementa uma aplicação simples de **lista de tarefas (To-Do list)** usando **JavaScript** e **localStorage** para armazenar os dados de tarefas de forma persistente:
+Este é um projeto simples e funcional de **Lista de Tarefas**, desenvolvido para praticar lógica de programação, manipulação do DOM e uso do **localStorage** com **HTML, CSS e JavaScript** puros. A aplicação permite ao usuário adicionar, concluir e excluir tarefas, mantendo os dados salvos mesmo após atualizar ou fechar o navegador.
 
-### 1. **Selecionando elementos da página:**
+<div align="center">
+  <img src="./src/images/screenshot-list.png" alt="Lista de tarefas com tarefas cadastradas." width="100%" />
+  <img src="./src/images/screenshot-list2.png" alt="Lista de tarefas com tarefas marcadas como concluídas" width="100%" />
+  <img src="./src/images/screenshot-empty.png" alt="Lista de tarefas vazia." width="100%" />
+</div>
 
-```javascript
-const form = document.querySelector("#todo-form");
-const taskTitleInput = document.querySelector("#task-title-input");
-const todoListUl = document.querySelector("#todo-list");
-const noTasksMessage = document.querySelector("#no-tasks-message");
+🔗 Acesse o projeto online: [Link do Projeto](https://lista-de-tarefas-islaianeribeiro.netlify.app/)
+
+## 🚀 Tecnologias Utilizadas
+
+- **HTML5** – Estrutura semântica e acessível da página.
+- **CSS3** – Estilização moderna e responsiva.
+- **JavaScript** – Manipulação dinâmica da lista de tarefas e persistência de dados.
+- **localStorage** – Armazenamento persistente no navegador.
+
+## 📌 Funcionalidades
+
+- ✅ Adicionar novas tarefas
+- ☑️ Marcar tarefas como concluídas (com linha cortada)
+- 🗑️ Excluir tarefas da lista
+- 💾 Salvamento automático no localStorage
+- 📭 Mensagem personalizada quando não houver tarefas cadastradas
+- 💡 Validação de entrada (mínimo de 3 caracteres)
+- 📱 Responsividade: visualização adaptada para dispositivos móveis
+
+## 🧠 Organização do Código
+
+```
+📁 src
+├─ 📁 images            # Imagens usadas na interface (ícones, ilustrações)
+├─ 📁 javascript        # Arquivo principal com toda a lógica JS
+│  └─ script.js
+├─ 📁 styles            # Estilizações em CSS puro
+│  └─ styles.css
+└─ index.html           # Estrutura principal da aplicação
 ```
 
--   **`form`**: Seleciona o formulário para adicionar uma nova tarefa.
--   **`taskTitleInput`**: Seleciona o campo de entrada de texto onde o usuário insere o título da tarefa.
--   **`todoListUl`**: Seleciona o `<ul>` onde as tarefas serão listadas.
--   **`noTasksMessage`**: Seleciona a `div` que contém uma mensagem informando ao usuário que não há tarefas, que será exibida quando a lista estiver vazia.
+## 🛠️ Como Usar
 
-### 2. **Inicializando o array de tarefas:**
+1. Clone este repositório:
 
-```javascript
-let tasks = []; // [{title: 'Tarefa 1', done: false}, ...]
-```
+   ```bash
+   git clone https://github.com/islaianeribeiro/todo-list.git
+   ```
 
--   **`tasks`**: Um array que vai armazenar as tarefas. Cada tarefa é representada como um objeto com um título (`title`) e um status de conclusão (`done`).
+2. Acesse a pasta do projeto:
 
-### 3. **Função `renderTaskOnHtml`:**
+   ```bash
+   cd todo-list
+   ```
 
-```javascript
-function renderTaskOnHtml(taskTitle, done = false) {
-    const li = document.createElement("li");
-    ...
-}
-```
+3. Abra o arquivo `index.html` no navegador (não precisa de servidor).
 
-Essa função é responsável por criar e exibir uma nova tarefa na página HTML. Ela recebe o **título da tarefa** e o **status de conclusão** (com valor padrão `false`).
+   Ou, se preferir, use uma extensão como Live Server no VSCode.
 
-#### Passos dentro de `renderTaskOnHtml`:
+---
 
--   **Criação de elementos HTML**:
+## 💡 Melhorias Futuras
 
-    -   **`li`**: Cria um item de lista (`<li>`), onde a tarefa será colocada.
-    -   **`input`**: Cria um campo de **checkbox** que permite marcar a tarefa como concluída ou não.
-    -   **`span`**: Cria um **span** para exibir o título da tarefa.
-    -   **`button`**: Cria um botão para excluir a tarefa, com um ícone SVG de "lixeira".
+- [ ] Adicionar opção para editar tarefas
+- [ ] Filtrar tarefas por status (todas / concluídas / pendentes)
+- [ ] Adicionar animações suaves ao adicionar ou remover tarefas
+- [ ] Tema escuro (dark mode)
+- [ ] Utilizar SVG inline ou bibliotecas de ícones externas para melhorar performance e personalização
 
--   **Marcação da tarefa como concluída**:
+---
 
-    -   Se a tarefa for concluída (`done = true`), a linha do texto (`span`) recebe um estilo de **riscado** (`text-decoration: line-through`).
-    -   Se o **checkbox** for marcado ou desmarcado, o evento **`change`** altera o estilo do texto e o status da tarefa no array `tasks`, e o status é salvo novamente no `localStorage`.
+## 👩‍💻 Desenvolvido por
 
--   **Excluir tarefa**:
+**Islaiane Ribeiro**
+Front-End Developer
 
-    -   Quando o botão de excluir é clicado, a tarefa é removida da lista (`tasks`) e do HTML. O **localStorage** também é atualizado.
+🔗 [LinkedIn](https://www.linkedin.com/in/islaianeribeiro)
 
--   **Atualizando a visibilidade da mensagem "sem tarefas"**:
-    -   A função `toggleNoTasksMessage` verifica se o array `tasks` está vazio e, se for, exibe a mensagem "não há tarefas". Caso contrário, oculta a mensagem.
+---
 
-### 4. **Função `toggleNoTasksMessage`:**
+## 📝 Licença
 
-```javascript
-function toggleNoTasksMessage() {
-    if (tasks.length === 0) {
-        noTasksMessage.style.display = "flex"; // Exibe a mensagem
-    } else {
-        noTasksMessage.style.display = "none"; // Oculta a mensagem
-    }
-}
-```
-
-Essa função alterna a visibilidade da mensagem de "sem tarefas", com base no número de tarefas armazenadas.
-
-### 5. **Carregando tarefas do `localStorage`:**
-
-```javascript
-window.onload = () => {
-    const tasksOnLocalStorage = localStorage.getItem("tasks");
-
-    if (!tasksOnLocalStorage) return;
-
-    tasks = JSON.parse(tasksOnLocalStorage);
-
-    tasks.forEach((t) => {
-        renderTaskOnHtml(t.title, t.done);
-    });
-
-    // Verificar se há tarefas ao carregar
-    toggleNoTasksMessage();
-};
-```
-
--   Ao carregar a página, o script verifica se existem tarefas salvas no `localStorage`.
--   Se houver tarefas, elas são recuperadas, transformadas de volta em objetos JavaScript com `JSON.parse()`, e renderizadas na tela através da função `renderTaskOnHtml`.
--   A visibilidade da mensagem "sem tarefas" também é verificada.
-
-### 6. **Adicionando nova tarefa:**
-
-```javascript
-form.addEventListener("submit", (event) => {
-    event.preventDefault(); // Evita o comportamento padrão de recarrecar a página ao submeter o formulário
-
-    const taskTitle = taskTitleInput.value;
-
-    if (taskTitle.length < 3) {
-        alert("Sua tarefa precisa de pelo menos 3 caracteres.");
-        return;
-    }
-
-    // Adicionando a nova tarefa no array
-    tasks.push({
-        title: taskTitle,
-        done: false,
-    });
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-
-    // Adicionando a nova tarefa no HTML
-    renderTaskOnHtml(taskTitle);
-
-    taskTitleInput.value = "";
-});
-```
-
--   Ao submeter o formulário, a função **`submit`** é acionada.
--   O comportamento padrão do formulário (que recarregaria a página) é impedido com `event.preventDefault()`.
--   Se o título da tarefa for válido (com pelo menos 3 caracteres), ele é adicionado ao array `tasks` e salvo no `localStorage`.
--   A nova tarefa é renderizada na tela com a função `renderTaskOnHtml`.
--   O campo de entrada é limpo após adicionar a tarefa.
-
-### **Fluxo geral do script:**
-
-1. O usuário adiciona uma tarefa pelo formulário.
-2. A tarefa é armazenada no **array `tasks`** e no **localStorage**.
-3. A tarefa é renderizada na página.
-4. O usuário pode marcar a tarefa como concluída, o que altera seu estilo e atualiza o **status** no array e no **localStorage**.
-5. O usuário pode excluir a tarefa, removendo-a do HTML e do array, e também atualizando o **localStorage**.
-
-Esse script oferece uma funcionalidade básica para criar, listar, marcar como concluída e excluir tarefas, além de garantir que as tarefas persistam mesmo após o fechamento do navegador.
+MIT © 2025 — Sinta-se à vontade para usar como base para seus próprios projetos!
