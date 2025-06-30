@@ -74,7 +74,7 @@ Este é um projeto simples e funcional de **Lista de Tarefas**, desenvolvido par
 **Islaiane Ribeiro**
 Front-End Developer
 
-🔗 [LinkedIn](https://www.linkedin.com/in/islaianeribeiro)
+🔗 [https://www.linkedin.com/in/islaianeribeiro](https://www.linkedin.com/in/islaianeribeiro)
 
 ---
 
